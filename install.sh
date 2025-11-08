@@ -10,5 +10,6 @@
 ./install-hyprshot.sh
 ./install-spicetify.sh
 ./install-dotfiles.sh
+./configure-vault.sh
 
 echo "Setup complete!"
