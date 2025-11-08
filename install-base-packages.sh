@@ -3,7 +3,7 @@
 echo "===== START: Installing base packages ====="
 
 sudo pacman -Syu --noconfirm \
-  man-db nvim git blueman base-devel ttf-cascadia-code-nerd \
+  man-db nvim git blueman btop base-devel ttf-cascadia-code-nerd \
   spotify-launcher rofi starship swaync tmux waybar \
   zathura zathura-pdf-poppler hyprpaper hyprlock yazi lazygit stow obsidian
 
