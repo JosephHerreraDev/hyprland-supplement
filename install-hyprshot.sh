@@ -1,4 +1,7 @@
 #!/bin/bash
 
-echo "Installing Hyprshot..."
+echo "===== START: Installing Hyprshot ====="
+
 yay -S --noconfirm hyprshot
+
+echo "===== END: Hyprshot Installed Succesfully ====="

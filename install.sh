@@ -2,6 +2,7 @@
 
 # Install in correct order
 
+echo "===== START: INSTALLATION ====="
 ./install-base-packages.sh
 ./install-yay.sh
 ./install-sddm-theme.sh
@@ -13,3 +14,4 @@
 ./install-dotfiles.sh
 
 echo "Setup complete!"
+echo "===== END: INSTALLATION ====="

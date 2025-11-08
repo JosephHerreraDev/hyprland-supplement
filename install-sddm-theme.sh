@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing SDDM silent theme..."
+echo "===== START: Installing SDDM Silent Theme ====="
 yay -S --noconfirm sddm-silent-theme
 sudo tee /etc/sddm.conf > /dev/null <<EOF
 [General]
@@ -10,3 +10,4 @@ GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT
 [Theme]
 Current=silent
 EOF
+echo "===== END: Installed SDDM Silent Theme Succesfully ====="

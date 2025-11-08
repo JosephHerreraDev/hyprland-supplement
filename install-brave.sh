@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo "Installing Brave..."
+echo "===== START: Installing Brave ====="
 yay -Sy --noconfirm brave-bin
+echo "===== END: Brave Installed Correctly ====="
