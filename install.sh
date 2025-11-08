@@ -8,8 +8,8 @@
 ./install-brave.sh
 ./install-wallpapers.sh
 ./install-hyprshot.sh
-./install-spicetify.sh
-./install-dotfiles.sh
 ./configure-vault.sh
+./install-nordic-gtk.sh
+./install-dotfiles.sh
 
 echo "Setup complete!"

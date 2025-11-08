@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Spotify must be installed and user must be signed in first
+
 echo "Installing Spicetify..."
 yay -S --noconfirm spicetify-cli spicetify-themes-git
 
