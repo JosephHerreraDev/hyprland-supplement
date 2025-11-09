@@ -1,0 +1,14 @@
+#!/bin/bash
+# location .local/bin/
+
+# Path to themes
+themes_dir="$HOME/.config/themes"
+
+# List all available themes (folder names)
+themes=$(ls "$themes_dir")
+
+# Show menu
+choice=$(printf "%s\n" "$themes" | rofi -dmenu -p "Select theme:")
+
+# Run switch if chosen
+[ -n "$choice" ] && bash "$HOME/.local/bin/theme-switch" "$choice"

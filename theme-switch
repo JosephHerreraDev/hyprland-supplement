@@ -1,0 +1,55 @@
+#!/bin/bash
+# location .local/bin/
+# Usage: theme-switch nord | everforest
+
+theme="$1"
+theme_dir="$HOME/.config/themes/$theme"
+
+if [ ! -d "$theme_dir" ]; then
+  echo "Theme '$theme' not found."
+  exit 1
+fi
+
+echo "Switching to theme: $theme"
+
+# Waybar
+ln -sf "$theme_dir/waybar.css" "$HOME/.config/waybar/theme.css"
+
+# Kitty
+ln -sf "$theme_dir/kitty.conf" "$HOME/.config/kitty/theme.conf"
+
+# Hyprland
+ln -sf "$theme_dir/hyprland.conf" "$HOME/.config/hypr/theme.conf"
+
+# Rofi
+ln -sf "$theme_dir/rofi.rasi" "$HOME/.config/rofi/theme.rasi"
+
+# Swaync
+ln -sf "$theme_dir/swaync.css" "$HOME/.config/swaync/theme.css"
+
+# Nvim
+ln -sf "$theme_dir/nvim.lua" "$HOME/.config/nvim/lua/plugins/theme.lua"
+
+# Spotify
+if [ "$theme" = "nord" ]; then
+  spicetify config current_theme Sleek
+  spicetify config color_scheme Nord
+fi
+
+if [ "$theme" = "everforest" ]; then
+  spicetify config current_theme text
+  spicetify config color_scheme EverforestDarkMedium
+fi
+spicetify apply
+
+# Waypaper
+waypaper --folder Pictures/wallpapers/$theme --random
+# waypaper --folder Pictures/wallpapers --restore
+
+# Reload
+pkill -USR2 waybar 2>/dev/null
+kitty @ set-colors --all "$theme_dir/kitty.conf" 2>/dev/null
+hyprctl reload 2>/dev/null
+swaync-client --reload-css
+
+notify-send "Theme switched to $theme"
