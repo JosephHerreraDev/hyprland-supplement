@@ -27,8 +27,14 @@ ln -sf "$theme_dir/rofi.rasi" "$HOME/.config/rofi/theme.rasi"
 # Swaync
 ln -sf "$theme_dir/swaync.css" "$HOME/.config/swaync/theme.css"
 
+# Btop
+ln -sf "$theme_dir/btop.theme" "$HOME/.config/btop/themes/$theme.theme"
+
 # Nvim
 ln -sf "$theme_dir/nvim.lua" "$HOME/.config/nvim/lua/plugins/theme.lua"
+
+# Zathura
+ln -sf "$theme_dir/zathurarc" "$HOME/.config/zathura/zathurarc"
 
 # Spotify
 if [ "$theme" = "nord" ]; then
@@ -40,7 +46,7 @@ if [ "$theme" = "everforest" ]; then
   spicetify config current_theme text
   spicetify config color_scheme EverforestDarkMedium
 fi
-spicetify apply
+#spicetify apply
 
 # Waypaper
 waypaper --folder Pictures/wallpapers/$theme --random
