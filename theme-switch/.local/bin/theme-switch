@@ -27,8 +27,8 @@ ln -sf "$theme_dir/rofi.rasi" "$HOME/.config/rofi/theme.rasi"
 # Swaync
 ln -sf "$theme_dir/swaync.css" "$HOME/.config/swaync/theme.css"
 
-# Btop
-ln -sf "$theme_dir/btop.theme" "$HOME/.config/btop/themes/$theme.theme"
+# Tmux
+ln -sf "$theme_dir/tmux.conf" "$HOME/.config/tmux/themes/theme.conf"
 
 # Nvim
 ln -sf "$theme_dir/nvim.lua" "$HOME/.config/nvim/lua/plugins/theme.lua"
@@ -38,7 +38,7 @@ ln -sf "$theme_dir/zathurarc" "$HOME/.config/zathura/zathurarc"
 
 # Spotify
 if [ "$theme" = "nord" ]; then
-  spicetify config current_theme Sleek
+  spicetify config current_theme text
   spicetify config color_scheme Nord
 fi
 
@@ -46,7 +46,27 @@ if [ "$theme" = "everforest" ]; then
   spicetify config current_theme text
   spicetify config color_scheme EverforestDarkMedium
 fi
-#spicetify apply
+
+if [ "$theme" = "one-dark-pro" ]; then
+  spicetify config current_theme text
+  spicetify config color_scheme Dracula
+fi
+
+if [ "$theme" = "tokyo-night" ]; then
+  spicetify config current_theme text
+  spicetify config color_scheme TokyoNight
+fi
+
+if [ "$theme" = "gruvbox" ]; then
+  spicetify config current_theme text
+  spicetify config color_scheme Gruvbox
+fi
+
+if [ "$theme" = "catppuccin" ]; then
+  spicetify config current_theme text
+  spicetify config color_scheme CatppuccinMocha
+fi
+spicetify apply
 
 # Waypaper
 waypaper --folder Pictures/wallpapers/$theme --random
@@ -54,8 +74,9 @@ waypaper --folder Pictures/wallpapers/$theme --random
 
 # Reload
 pkill -USR2 waybar 2>/dev/null
-kitty @ set-colors --all "$theme_dir/kitty.conf" 2>/dev/null
+pkill -USR1 kitty
 hyprctl reload 2>/dev/null
 swaync-client --reload-css
+tmux source-file ~/.tmux.conf
 
-notify-send "Theme switched to $theme"
+notify-send "Theme switched to $theme!"
