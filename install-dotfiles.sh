@@ -25,6 +25,7 @@ if [ $? -eq 0 ]; then
   stow starship
   stow swaync
   stow tmux
+  stow themes
   stow waybar
   stow waypaper
   stow zathura
