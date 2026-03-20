@@ -19,6 +19,7 @@ if [ $? -eq 0 ]; then
   cd "$DOTFILES_DIR"
   stow hypr
   stow kitty
+  stow sway
   stow nvim
   stow rofi
   stow starship
